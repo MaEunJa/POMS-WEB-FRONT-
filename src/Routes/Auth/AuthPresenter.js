@@ -65,10 +65,11 @@ export default ({
   password,
   setAction,
   onSubmit,
-  secret
+  secret,
+  phone,
 }) => (
   <Wrapper>
-    <Form>
+    <Form> 
       {action === "logIn" && (
         <>
           <Helmet>
@@ -88,10 +89,12 @@ export default ({
             <title>Sign Up | Prismagram</title>
           </Helmet>
           <form onSubmit={onSubmit}>
-            <Input placeholder={"First name"} {...firstName} />
-            <Input placeholder={"Last name"} {...lastName} />
-            <Input placeholder={"Email"} {...email} type="email" />
+//            <Input placeholder={"First name"} {...firstName} />
+//            <Input placeholder={"Last name"} {...lastName} />
             <Input placeholder={"Username"} {...username} />
+            <Input placeholder={"Email"} {...email} type="email" />
+            <Input placeholder={"Password"} {...password} type="password" />
+            <Input placeholder={"Phone"} {...phone} />
             <Button text={"Sign up"} />
           </form>
         </>

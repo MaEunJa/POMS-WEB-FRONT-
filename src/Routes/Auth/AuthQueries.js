@@ -5,7 +5,6 @@ export const LOG_IN = gql`
     requestSecret(email: $email)
   }
 `;
-
 export const CREATE_ACCOUNT = gql`
   mutation createAccount(
     $username: String!
@@ -27,9 +26,14 @@ export const CONFIRM_SECRET = gql`
     confirmSecret(secret: $secret, email: $email)
   }
 `;
-
 export const LOCAL_LOG_IN = gql`
   mutation logUserIn($token: String!) {
     logUserIn(token: $token) @client
+  }
+`;
+
+export const CHECK_PASSWORD = gql`
+  mutation requestCheckPassword($password: String!, $email: String!) {
+    requestCheckPassword(email: $email,password: $password)
   }
 `;

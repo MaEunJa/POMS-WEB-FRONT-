@@ -6,15 +6,15 @@ import {
   LOG_IN,
   CREATE_ACCOUNT,
   CONFIRM_SECRET,
-  LOCAL_LOG_IN
+  LOCAL_LOG_IN,
+  CHECK_PASSWORD
 } from "./AuthQueries";
 import { toast } from "react-toastify";
 
 export default () => {
   const [action, setAction] = useState("logIn");
   const username = useInput("");
-  const firstName = useInput("");
-  const lastName = useInput("");
+  const phone = useInput("");
   const secret = useInput("");
   const email = useInput("");
   const password=useInput("");
@@ -27,12 +27,18 @@ export default () => {
       }
     }},*/ {variables: { email: email.value }
   });
+  const [requestCheckPasswordMutation] = useMutation(CHECK_PASSWORD, {
+    variables: {
+      email: email.value,
+      password: password.value
+    }
+  });
+ 
   const [createAccountMutation] = useMutation(CREATE_ACCOUNT, {
     variables: {
       email: email.value,
       username: username.value,
-      firstName: firstName.value,
-      lastName: lastName.value
+      phone: phone.value
     }
   });
   const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
@@ -46,21 +52,18 @@ export default () => {
   const onSubmit = async e => {
     e.preventDefault();
     if (action === "logIn") {
-      if (email.value !== "") {
+      if (email.value !== "" && password.value !="") {
         try {
           const {
-            data: { requestSecret }
-          } = await requestSecretMutation();
-          if (!requestSecret) {
-            toast.error("You dont have an account yet, create one");
-            setTimeout(() => setAction("signUp"), 3000);
+            data: { confirmToken:token }
+          } = await requestCheckPasswordMutation();//이메일과 비번이 맞으면 토큰을 리턴받는다
+          if (token !== "" && token !== undefined) {
+            localLogInMutation({ variables: { token } });
           } else {
-            toast.success("Check your inbox for your login secret");
-            setAction("confirm");
+            throw Error();
           }
-        } catch (e){
-            console.log("test"+e.message);
-          toast.error("Can't request secret, try again==>--AuthContainer");
+        } catch {
+          toast.error("Cant confirm password,check again");
         }
       } else {
         toast.error("Email is required");
@@ -69,8 +72,7 @@ export default () => {
       if (
         email.value !== "" &&
         username.value !== "" &&
-        firstName.value !== "" &&
-        lastName.value !== ""
+        phone.value !== "" 
       ) {
         try {
           const {
@@ -111,8 +113,6 @@ export default () => {
       setAction={setAction}
       action={action}
       username={username}
-      firstName={firstName}
-      lastName={lastName}
       email={email}
       password={password}
       secret={secret}
