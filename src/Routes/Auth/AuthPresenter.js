@@ -76,9 +76,9 @@ export default ({
             <title>Log In | POMS - Parking Operation Management Software</title>
          </Helmet>
           <form onSubmit={onSubmit}>
-            <Heading value="관리자 fh로그인"/>
+            <Heading value="관리자 로그인"/>
             <Input placeholder={"Email"} {...email} type="email" />
-            <Input placeholder={"Pass word"} {...password} type="password" />
+            <Input placeholder={"Password"} {...password} type="password" />
             <Button text={"Log in"} />
           </form>
         </>
@@ -89,8 +89,6 @@ export default ({
             <title>Sign Up | Prismagram</title>
           </Helmet>
           <form onSubmit={onSubmit}>
-//            <Input placeholder={"First name"} {...firstName} />
-//            <Input placeholder={"Last name"} {...lastName} />
             <Input placeholder={"Username"} {...username} />
             <Input placeholder={"Email"} {...email} type="email" />
             <Input placeholder={"Password"} {...password} type="password" />
