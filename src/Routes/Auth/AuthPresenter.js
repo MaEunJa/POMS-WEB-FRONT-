@@ -66,7 +66,7 @@ export default ({
   setAction,
   onSubmit,
   secret,
-  phone,
+  phone
 }) => (
   <Wrapper>
     <Form> 

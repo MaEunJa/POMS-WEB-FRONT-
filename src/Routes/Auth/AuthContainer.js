@@ -36,9 +36,10 @@ export default () => {
  
   const [createAccountMutation] = useMutation(CREATE_ACCOUNT, {
     variables: {
-      email: email.value,
       username: username.value,
-      phone: phone.value
+      email: email.value,
+      phone: phone.value,
+      password:password.value
     }
   });
   const [confirmSecretMutation] = useMutation(CONFIRM_SECRET, {
@@ -63,7 +64,6 @@ export default () => {
             throw Error();
           }
         } catch {
-          debugger
           toast.error("Cant confirm password,check again");
         }
       } else {
@@ -89,6 +89,7 @@ export default () => {
           toast.error(e.message);
         }
       } else {
+        debugger
         toast.error("All field are required");
       }
     } else if (action === "confirm") {
@@ -116,6 +117,7 @@ export default () => {
       username={username}
       email={email}
       password={password}
+      phone={phone}
       secret={secret}
       onSubmit={onSubmit}
     />

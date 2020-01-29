@@ -9,12 +9,16 @@ export const CREATE_ACCOUNT = gql`
   mutation createAccount(
     $username: String!
     $email: String!
+    $phone: String!
+    $password: String!
     $firstName: String
     $lastName: String
   ) {
     createAccount(
       username: $username
       email: $email
+      phone:$phone
+      password:$password
       firstName: $firstName
       lastName: $lastName
     )
