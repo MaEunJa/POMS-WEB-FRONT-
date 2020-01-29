@@ -33,7 +33,7 @@ export const LOCAL_LOG_IN = gql`
 `;
 
 export const CHECK_PASSWORD = gql`
-  mutation requestCheckPassword($password: String!, $email: String!) {
+  mutation requestCheckPassword($email: String!,$password: String!) {
     requestCheckPassword(email: $email,password: $password)
   }
 `;
