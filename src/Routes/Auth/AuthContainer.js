@@ -57,6 +57,7 @@ export default () => {
           const {
             data: { confirmToken:token }
           } = await requestCheckPasswordMutation();//이메일과 비번이 맞으면 토큰을 리턴받는다
+          debugger
           if (token !== "" && token !== undefined) {
             localLogInMutation({ variables: { token } });
           } else {
