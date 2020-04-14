@@ -26,13 +26,14 @@ const PostSection = styled(Section)`
 `;
 
 const ParkingStatusPresenter = ({ loading, data }) => {
+  console.log(data);
   if (loading === true) {
     return (
       <Wrapper>
         <Loader />
       </Wrapper>
     );
-  } else if (data && data && data.allParkingStatus) {
+  } else if (data && data.allParkingStatus) {
     return (
       <Wrapper>
         <Section>
