@@ -6,13 +6,11 @@ import ParkingStatusPresenter from "./ParkingStatusPresenter";
 
 const GET_PARKINGSTATUS = gql`
   query ParkingStatus() {
-    allParkingStatus() {
+    allParkingStatus{
       id
-      floorCode
       floorName
       totalSpace
-      occupied
-  }
+    }
 }`;
 
 export default withRouter(() => {
