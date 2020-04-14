@@ -32,14 +32,14 @@ const ParkingStatusPresenter = ({ loading, data }) => {
         <Loader />
       </Wrapper>
     );
-  } else if (data && data && data.ParkingStatus) {
+  } else if (data && data && data.allParkingStatus) {
     return (
       <Wrapper>
         <Section>
-          {data.ParkingStatus.length === 0 ? (
+          {data.allParkingStatus.length === 0 ? (
             <FatText text="No Parking Status Found" />
           ) : (
-            data.ParkingStatus.map(parkingStatus => (
+            data.allParkingStatus.map(parkingStatus => (
               <UserCard
                 key={parkingStatus.id}
                 floorName={parkingStatus.floorName}

@@ -5,8 +5,8 @@ import { useQuery, useMutation } from "react-apollo-hooks";
 import ParkingStatusPresenter from "./ParkingStatusPresenter";
 
 const GET_PARKINGSTATUS = gql`
-  query allParkingStatus() {
-    ParkingStatus() {
+  query ParkingStatus() {
+    allParkingStatus {
       id
       floorCode
       floorName
