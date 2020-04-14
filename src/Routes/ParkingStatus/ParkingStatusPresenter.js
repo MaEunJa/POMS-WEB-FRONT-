@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import FatText from "../../Components/FatText";
 import Loader from "../../Components/Loader";
 import UserCard from "../../Components/UserCard";
-import SquarePost from "../../Components/SquarePost";
+import { Helmet } from "rl-react-helmet";
 
 const Wrapper = styled.div`
   height: 50vh;
@@ -37,7 +37,7 @@ const ParkingStatusPresenter = ({ loading, data }) => {
     return (
       <Wrapper>
         <Helmet>
-          <title>{username} | Prismagram</title>
+          <title>ParkingStatus | Prismagram</title>
         </Helmet>        
         <Section>
           {data.allParkingStatus.length === 0 ? (
