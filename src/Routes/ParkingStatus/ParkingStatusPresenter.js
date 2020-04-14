@@ -36,7 +36,7 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
     return (
       <Wrapper>
         <Loader />
-      </Wrapper
+      </Wrapper>
     );
   } else if (data && data && data.allParkingStatus) {
     return (
