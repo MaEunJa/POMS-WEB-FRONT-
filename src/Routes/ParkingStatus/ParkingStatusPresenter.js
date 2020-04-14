@@ -33,7 +33,7 @@ const ParkingStatusPresenter = ({ loading, data }) => {
         <Loader />
       </Wrapper>
     );
-  } else if (data && data.allParkingStatus) {
+  } else if (!data && !data.allParkingStatus) {
     return (
       <Wrapper>
         <Helmet>
