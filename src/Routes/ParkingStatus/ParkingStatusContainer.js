@@ -8,7 +8,12 @@ const GET_PARKINGSTATUS = gql`
   query ParkingStatus {
     allParkingStatus{
       id
+      floorCode
       floorName
+      floorOrder
+      floorDisplayOrder
+      floorMap
+      floorGubun
       totalSpace
       occupied
     }
