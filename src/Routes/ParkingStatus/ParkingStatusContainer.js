@@ -10,6 +10,7 @@ const GET_PARKINGSTATUS = gql`
       id
       floorName
       totalSpace
+      occupied
     }
 }`;
 
