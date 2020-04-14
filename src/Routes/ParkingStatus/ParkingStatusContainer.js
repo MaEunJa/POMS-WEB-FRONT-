@@ -6,7 +6,7 @@ import ParkingStatusPresenter from "./ParkingStatusPresenter";
 
 const GET_PARKINGSTATUS = gql`
   query allParkingStatus() {
-    allParkingStatus() {
+    ParkingStatus() {
       id
       floorCode
       floorName

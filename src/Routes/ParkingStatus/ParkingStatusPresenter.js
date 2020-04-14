@@ -25,27 +25,21 @@ const PostSection = styled(Section)`
   grid-auto-rows: 200px;
 `;
 
-const SearchPresenter = ({ searchTerm, loading, data }) => {
-  if (searchTerm === undefined) {
-    return (
-      <Wrapper>
-        <FatText text="Search for something" />
-      </Wrapper>
-    );
-  } else if (loading === true) {
+const ParkingStatusPresenter = ({ loading, data }) => {
+  if (loading === true) {
     return (
       <Wrapper>
         <Loader />
       </Wrapper>
     );
-  } else if (data && data && data.allParkingStatus) {
+  } else if (data && data && data.ParkingStatus) {
     return (
       <Wrapper>
         <Section>
-          {data.allParkingStatus.length === 0 ? (
+          {data.ParkingStatus.length === 0 ? (
             <FatText text="No Parking Status Found" />
           ) : (
-            data.allParkingStatus.map(parkingStatus => (
+            data.ParkingStatus.map(parkingStatus => (
               <UserCard
                 key={parkingStatus.id}
                 floorName={parkingStatus.floorName}
@@ -60,9 +54,8 @@ const SearchPresenter = ({ searchTerm, loading, data }) => {
   }
 };
 
-SearchPresenter.propTypes = {
-  searchTerm: PropTypes.string,
+ParkingStatusPresenter.propTypes = {
   loading: PropTypes.bool
 };
 
-export default SearchPresenter;
+export default ParkingStatusPresenter;
