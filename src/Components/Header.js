@@ -75,16 +75,9 @@ export default withRouter(({ history }) => {
     <Header>
       <HeaderWrapper>
         <HeaderColumn>
-          {!data ?(
-              <HeaderLink to="/">
-              <Logo />
-              </HeaderLink>
-          ):(
-              <HeaderLink to="/parkingstatus">
-              <Logo />
-              </HeaderLink>
-
-          )}
+          <HeaderLink to="/parkingstatus">
+            <Logo />
+          </HeaderLink>
         </HeaderColumn>
         <HeaderTitle>
           <p>POMS</p>

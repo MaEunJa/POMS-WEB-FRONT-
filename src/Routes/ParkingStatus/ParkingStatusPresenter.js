@@ -36,6 +36,9 @@ const ParkingStatusPresenter = ({ loading, data }) => {
   } else if (data && data.allParkingStatus) {
     return (
       <Wrapper>
+        <Helmet>
+          <title>{username} | Prismagram</title>
+        </Helmet>        
         <Section>
           {data.allParkingStatus.length === 0 ? (
             <FatText text="No Parking Status Found" />
