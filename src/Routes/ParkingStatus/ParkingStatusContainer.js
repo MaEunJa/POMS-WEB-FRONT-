@@ -5,7 +5,7 @@ import { useQuery, useMutation } from "react-apollo-hooks";
 import ParkingStatusPresenter from "./ParkingStatusPresenter";
 
 const GET_PARKINGSTATUS = gql`
-  query ParkingStatus {
+{
     allParkingStatus{
       id
       floorCode
@@ -16,7 +16,7 @@ const GET_PARKINGSTATUS = gql`
       floorGubun
       totalSpace
       occupied
-    }
+    } 
 }`;
 
 export default withRouter(() => {
