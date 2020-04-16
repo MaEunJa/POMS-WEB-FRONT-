@@ -3,7 +3,7 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import FatText from "../../Components/FatText";
 import Loader from "../../Components/Loader";
-import UserCard from "../../Components/UserCard";
+import ParkingStatusBox from "../../Components/ParkingStatusBox";
 import { Helmet } from "rl-react-helmet";
 
 const Wrapper = styled.div`
@@ -33,7 +33,7 @@ const ParkingStatusPresenter = ({ loading, data }) => {
         <Loader />
       </Wrapper>
     );
-  } else if (!data && !data.allParkingStatus) {
+  } else if (data && data.allParkingStatus) {
     return (
       <Wrapper>
         <Helmet>
@@ -44,8 +44,7 @@ const ParkingStatusPresenter = ({ loading, data }) => {
             <FatText text="No Parking Status Found" />
           ) : (
             data.allParkingStatus.map(parkingStatus => (
-              <UserCard
-                key={parkingStatus.id}
+              <ParkingStatusBox
                 floorName={parkingStatus.floorName}
                 totalSpace={parkingStatus.totalSpace}
                 occupied={parkingStatus.occupied}
