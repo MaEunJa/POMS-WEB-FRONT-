@@ -10,7 +10,7 @@ import ParkingStatus from "../Routes/ParkingStatus";
 
 const LoggedInRoutes = () => (
   <Switch>
-    <Route exact path="/" component={Feed} />
+    <Route exact path="/" component={ParkingStatus} />
     <Route path="/explore" component={Explore} />
     <Route path="/search" component={Search} />
     <Route path="/:username" component={Profile} />
