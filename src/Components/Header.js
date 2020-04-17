@@ -44,7 +44,7 @@ const HeaderColumn = styled.div`
 `;
 
 const HeaderTitle= styled.div`
-  width: 80%;
+  width: 100%;
   text-align: center;
   &:first-child {
     margin-right: auto;
@@ -54,6 +54,14 @@ const HeaderTitle= styled.div`
     margin-left: auto;
     text-align: right;
   }
+`;
+const Title=styled.h1`
+  text-align:center;
+  font-size:22px;
+`;
+const SubTitle=styled.p`
+  text-align:center;
+  font-size:13px;
 `;
 
 
@@ -80,8 +88,8 @@ export default withRouter(({ history }) => {
           </HeaderLink>
         </HeaderColumn>
         <HeaderTitle>
-          <p>POMS</p>
-          <p>Parking Operation Management System</p>
+          <Title>POMS</Title>
+          <SubTitle>Parking Operation Management System</SubTitle>
         </HeaderTitle>
         <HeaderColumn>
           {!data || !data.me ? (
