@@ -19,6 +19,7 @@ const Header = styled.header`
   align-items: center;
   padding: 25px 0px;
   z-index: 2;
+  margin-top:30px;
  `;
 const Box = styled.div` 
   border-radius:0px;
