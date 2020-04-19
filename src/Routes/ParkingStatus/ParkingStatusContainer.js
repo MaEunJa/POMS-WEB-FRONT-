@@ -20,9 +20,6 @@ const GET_PARKINGSTATUS = gql`
 }`;
 
 export default withRouter(() => {
-  console.log("parking status withrouter");
   const { data, loading } = useQuery(GET_PARKINGSTATUS);
-  console.log("parking status withrouter->");
-  console.log(data);
   return <ParkingStatusPresenter loading={loading} data={data} />;
 });

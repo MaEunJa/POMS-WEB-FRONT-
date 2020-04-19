@@ -3,17 +3,15 @@ import styled from "styled-components";
 import { Link, withRouter } from "react-router-dom";
 import Input from "./Input";
 import useInput from "../Hooks/useInput";
-import { Compass, HeartEmpty, User, Logo } from "./Icons";
+import { Compass, HeartEmpty, User, Logo,Gnb } from "./Icons";
 import { useQuery } from "react-apollo-hooks";
 import { ME } from "../SharedQueries";
 
 const Header = styled.header`
-  width:350px; 
+  width:100%; 
   border: 0;
-  position: fixed;
   top: 0;
-  background-color: white;
-  background-image:url("head_bg.png") ;
+  background-image: linear-gradient(#74a5f1,#2276f2);
   border-bottom: ${props => props.theme.boxBorder};
   border-radius: 0px;
   display: flex;
@@ -21,8 +19,8 @@ const Header = styled.header`
   align-items: center;
   padding: 25px 0px;
   z-index: 2;
-`;
-const Box = styled.div`
+ `;
+const Box = styled.div` 
   border-radius:0px;
   width: 90%;
 `;
@@ -58,10 +56,13 @@ const HeaderTitle= styled.div`
 const Title=styled.h1`
   text-align:center;
   font-size:22px;
+  color:white;
+  padding-bottom:5px;
 `;
 const SubTitle=styled.p`
   text-align:center;
-  font-size:13px;
+  color:white;
+  font-size:10px;
 `;
 
 
@@ -83,7 +84,7 @@ export default withRouter(({ history }) => {
     <Header>
       <HeaderWrapper>
         <HeaderColumn>
-          <HeaderLink to="/parkingstatus">
+          <HeaderLink to="/">
             <Logo />
           </HeaderLink>
         </HeaderColumn>
@@ -94,11 +95,11 @@ export default withRouter(({ history }) => {
         <HeaderColumn>
           {!data || !data.me ? (
             <HeaderLink to="/#">
-              <User />
+              <Gnb />
             </HeaderLink>
           ) : (
             <HeaderLink to={data.me.username}>
-              <User />
+              <Gnb />
             </HeaderLink>
           )}
         </HeaderColumn>

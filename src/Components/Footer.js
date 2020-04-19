@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 const Footer = styled.footer`
   width:100%;
-  display: flex;
   justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
@@ -27,29 +26,23 @@ const Link = styled.a`
   color: ${props => props.theme.darkBlueColor};
 `;
 
-const Copyright = styled.span`
-  color: ${props => props.theme.darkGreyColor};
+const FooterLog = styled.div`
+  background-color:#2276f2;
+  color: white;
+  text-align:center;
+  font-size:15px;
+  padding:7px;
+`;const Copyright = styled.div`
+background-color:black;
+color: white;
+text-align:center;
+font-size:8px;
+padding:7px;
 `;
 
 export default () => (
   <Footer>
-    <List>
-      <ListItem>
-        <Link href="#">about us</Link>
-      </ListItem>
-      <ListItem>
-        <Link href="#">support</Link>
-      </ListItem>
-      <ListItem>
-        <Link href="#">press</Link>
-      </ListItem>
-      <ListItem>
-        <Link href="#">api</Link>
-      </ListItem>
-      <ListItem>
-        <Link href="#">jobs</Link>
-      </ListItem>
-    </List>
-    <Copyright>Instaclone {new Date().getFullYear()} &copy;</Copyright>
+    <FooterLog>TIS, Inc</FooterLog>
+    <Copyright>Copyright&copy; TIS All rights reserved.</Copyright>
   </Footer>
 );
